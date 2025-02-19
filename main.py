@@ -30,7 +30,11 @@ def main():
         pygame.display.flip()
         dt = clock.tick(60)/1000
         for object in updatable:
-            object.update(dt)      
+            object.update(dt)
+        for object in asteroids:
+            if object.is_colliding(player):
+                print("Game over!")
+                return      
 
 if __name__ == "__main__":
     main()
