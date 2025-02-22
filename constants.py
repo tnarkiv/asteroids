@@ -1,3 +1,4 @@
+"""Contains constant values used in this game"""
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
 

@@ -1,10 +1,21 @@
-import pygame
+"""Contains the logic for the asteroid field"""
+
 import random
+import pygame
 from asteroid import Asteroid
-from constants import *
+from constants import (
+    ASTEROID_KINDS,
+    ASTEROID_MAX_RADIUS,
+    ASTEROID_MIN_RADIUS,
+    ASTEROID_SPAWN_RATE,
+    SCREEN_HEIGHT,
+    SCREEN_WIDTH,
+)
 
 
 class AsteroidField(pygame.sprite.Sprite):
+    """Class definition for Asteroid Field"""
+
     edges = [
         [
             pygame.Vector2(1, 0),
@@ -33,10 +44,22 @@ class AsteroidField(pygame.sprite.Sprite):
         self.spawn_timer = 0.0
 
     def spawn(self, radius, position, velocity):
+        """Spawns new asteroids
+
+        Args:
+            radius (integer): radius for the asteroid
+            position (coordinate): center for the asteroid
+            velocity (vector): velocity of the asteroid
+        """
         asteroid = Asteroid(position.x, position.y, radius)
         asteroid.velocity = velocity
 
     def update(self, dt):
+        """Updates the asteroid field
+
+        Args:
+            dt (integer): delta value
+        """
         self.spawn_timer += dt
         if self.spawn_timer > ASTEROID_SPAWN_RATE:
             self.spawn_timer = 0
