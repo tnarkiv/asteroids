@@ -1,5 +1,5 @@
 """ main module of asteroids game """
-
+# pylint: disable=no-member
 import pygame
 from asteroid import Asteroid
 from asteroidfield import AsteroidField

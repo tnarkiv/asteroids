@@ -1,5 +1,5 @@
 """Contains logic for the player in the game"""
-
+# pylint: disable=no-member
 import pygame
 from circleshape import CircleShape
 
